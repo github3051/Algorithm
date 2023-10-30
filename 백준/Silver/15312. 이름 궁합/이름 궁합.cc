@@ -10,29 +10,30 @@ int main()
 	cin >> myName >> herName;
 
 	int len = myName.length();
-	vector<vector<int>> dp(2 * len, vector<int>(2 * len, 0));
+	vector<int> compatibility;
 
-	for (int myIdx = 0, herIdx = 0, i = 0; i < 2 * len; ++i)
+	for (int i = 0; i < len; ++i)
 	{
-		if (i % 2) // 여자이름
-		{
-			dp[0][i] = alphabet[herName[herIdx] - 'A'];
-			herIdx += 1;
-		}
-		else // 남자이름
-		{
-			dp[0][i] = alphabet[myName[myIdx] - 'A'];
-			myIdx += 1;
-		}
+		compatibility.emplace_back(alphabet[myName[i] - 'A']);
+		compatibility.emplace_back(alphabet[herName[i] - 'A']);
 	}
 
-	for (int i = 1; i < 2 * len; ++i)
+	while (true)
 	{
-		for (int j = 0; j < 2 * len - i; ++j)
+		int size = compatibility.size();
+
+		if (size == 2)
 		{
-			dp[i][j] = (dp[i - 1][j] + dp[i - 1][j + 1]) % 10;
+			break;
 		}
+
+		vector<int> tmp;
+		for (int i = 0; i < size - 1; ++i)
+		{
+			tmp.emplace_back((compatibility[i] + compatibility[i + 1]) % 10);
+		}
+		compatibility = tmp;
 	}
 
-	cout << dp[len * 2 - 2][0] << dp[len * 2 - 2][1];
+	cout << compatibility[0] << compatibility[1];
 }
