@@ -14,7 +14,7 @@ int main()
 		cin >> arr[i];
 	}
 
-	vector<int> dp(n, 0);
+	vector<int> dp(n, 1);
 
 	for (int i = 0; i < n; ++i) // 구하려는 dp의 위치(현재 위치)
 	{
@@ -22,10 +22,9 @@ int main()
 		{
 			if (arr[j] < arr[i]) // 증가 수열이기 때문에 현재 위치보다 앞에있는 값들은 현재 값보다 작아야됨
 			{
-				dp[i] = max(dp[i], dp[j]);
+				dp[i] = max(dp[i], dp[j]+1);
 			}
 		}
-		dp[i] += 1;
 	}
 	
 	cout << *max_element(dp.begin(), dp.end());
