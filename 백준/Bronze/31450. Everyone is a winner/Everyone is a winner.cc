@@ -6,5 +6,5 @@ int main()
     int m,k;
     cin >> m >> k;
     
-    cout << ( (m%k == 0) && (m >= k) ? "Yes" : "No");
+    cout << ( (m%k == 0) ? "Yes" : "No");
 }
