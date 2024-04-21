@@ -16,38 +16,13 @@ int main()
         for(int i=0; i<n; ++i)
         {
             cin >> p1 >> p2;
-            if(p1 == 'R')
+            if( (p1 == 'R' && p2 == 'S' )||(p1 == 'S' && p2 == 'P' )||(p1 == 'P' && p2 == 'R' ))
             {
-                if(p2 == 'S')
-                {
-                    p1Score += 1;
-                }
-                else if(p2 == 'P')
-                {
-                    p2Score += 1;
-                }
+                p1Score += 1;
             }
-            else if(p1 == 'S')
+            else if( (p1 == 'R' && p2 == 'P' ) || (p1 == 'S' && p2 == 'R' ) || (p1 == 'P' && p2 == 'S' ))
             {
-                if(p2 == 'R')
-                {
-                    p2Score += 1;
-                }
-                else if(p2 == 'P')
-                {
-                    p1Score += 1;
-                }
-            }
-            else if(p1 == 'P')
-            {
-                if(p2 == 'S')
-                {
-                    p2Score += 1;
-                }
-                else if(p2 == 'R')
-                {
-                    p1Score += 1;
-                }
+                p2Score += 1;
             }
         }
         if(p1Score == p2Score)
