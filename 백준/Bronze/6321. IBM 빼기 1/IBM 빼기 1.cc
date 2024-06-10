@@ -22,7 +22,7 @@ int main()
             }
             else
             {
-                cout << (char)(str[i]+1);
+                cout.put(str[i]+1);
             }
         }
         cout << "\n\n";
