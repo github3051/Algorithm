@@ -6,7 +6,7 @@ int main()
     int n,x;
     cin >> n >> x;
     
-    int ans = 0;
+    int ans = -1;
     while(n--)
     {
         int start, end;
