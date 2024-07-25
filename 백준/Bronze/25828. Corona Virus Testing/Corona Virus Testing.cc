@@ -6,16 +6,5 @@ int main()
     int g,p,t;
     cin >> g >> p >> t;
     
-    if(g + t*p == g*p)
-    {
-        cout << 0;
-    }
-    else if(g + t*p > g*p)
-    {
-        cout << 1;
-    }
-    else
-    {
-        cout << 2;
-    }
+    cout << (g*p > g + p*t ? 2 : g*p == g + p*t ? 0 : 1);
 }
