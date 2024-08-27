@@ -1,28 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
-
-bool ChkPrime(const int& num)
-{
-	if (num <= 1)
-	{
-		return false;
-	}
-
-	for (int i = 2; i <= sqrt(num); ++i)
-	{
-		if (num % i == 0)
-		{
-			return false;
-		}
-	}
-
-	return true;
-}
 
 int main()
 {
+	vector<bool> isPrime(10001, true);
+	isPrime[0] = isPrime[1] = false;
+
+	for (int i = 2; i*i <= 10000; ++i)
+	{
+		if (isPrime[i])
+		{
+			for (int j = i * i; j <= 10000; j += i)
+			{
+				isPrime[j] = false;
+			}
+		}
+	}
+
 	int t;
 	cin >> t;
 	while (t--)
@@ -34,7 +29,7 @@ int main()
 		int big = 0;
 		for (int i = 2; i <= n/2; ++i)
 		{
-			if (ChkPrime(i) && ChkPrime(n - i))
+			if (isPrime[i] && isPrime[n - i])
 			{
 				small = i;
 				big = n - i;
