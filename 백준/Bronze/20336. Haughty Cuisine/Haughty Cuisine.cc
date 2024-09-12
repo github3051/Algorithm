@@ -15,7 +15,7 @@ int main()
         int d;
         cin >> d;
 
-        if (ansN < d)
+        if (i == 0)
         {
             ansN = d;
             ansStr.clear();
