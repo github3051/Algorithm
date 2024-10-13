@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip> 
 using namespace std;
 
 int main()
@@ -11,7 +10,8 @@ int main()
 		double n;
 		string str;
 		cin >> n >> str;
-		cout <<  fixed << setprecision(4);
+		cout << fixed;
+		cout.precision(4);
 
 		if (str == "kg")
 		{
