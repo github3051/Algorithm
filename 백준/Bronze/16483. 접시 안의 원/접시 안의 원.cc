@@ -5,13 +5,6 @@ int main()
 {
     int t;
     cin >> t;
+            cout << t * t / 4 ;
 
-    if ((t * t * 10 / 4) % 10 >= 5)
-    {
-        cout << t * t / 4+1;
-    }
-    else
-    {
-        cout << t * t / 4 ;
-    }
 }
