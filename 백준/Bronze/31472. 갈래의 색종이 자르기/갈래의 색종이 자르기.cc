@@ -6,5 +6,5 @@ int main()
 {
     int n;
     cin >> n;
-    cout << (int)4*sqrt(2*n);
+    cout << 4*sqrt(2*n);
 }
