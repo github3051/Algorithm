@@ -9,7 +9,7 @@ int main()
 	int n;
 	cin >> n;
 
-	long long ans = 0;
+	int ans = 0;
 	for (int i = 0; i < n; ++i)
 	{
 		int tmp,expo,base,val = 1;
