@@ -20,8 +20,7 @@ int main()
 		string chkStrRows = board[i][0]; // 가로
 		string chkStrCols = board[0][i]; // 세로
 
-		int nRows = 0;
-        int nCols = 0;
+		int nRows = 0, nCols = 0;
 
 		for (int j = 1; j < 10; ++j)
 		{
