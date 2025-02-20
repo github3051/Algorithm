@@ -17,40 +17,30 @@ int main()
 
 	for (int i = 0; i < 10; ++i)
 	{
-		int nAns = 0;
-		// 가로
-		string chkStrRows = board[i][0];
+		string chkStrRows = board[i][0]; // 가로
+		string chkStrCols = board[0][i]; // 세로
+
+		int nRows = 0;
+        int nCols = 0;
+
 		for (int j = 1; j < 10; ++j)
 		{
 			if(chkStrRows == board[i][j])
 			{
-				nAns += 1;
+				nRows += 1;
 			}
-		}
 
-		if (nAns == 9)
-		{
-			cout << 1;
-			return 0;
-		}
-
-		// 세로
-		string chkStrCols = board[0][i];
-		nAns = 0;
-		for (int j = 1; j < 10; ++j)
-		{
 			if (chkStrCols == board[j][i])
 			{
-				nAns += 1;
+				nCols += 1;
 			}
 		}
 
-		if (nAns == 9)
+		if (nRows == 9 || nCols == 9)
 		{
 			cout << 1;
 			return 0;
 		}
 	}
-
 	cout << 0;
 }
