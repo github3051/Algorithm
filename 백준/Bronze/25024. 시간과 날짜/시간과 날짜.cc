@@ -9,6 +9,8 @@ int main()
 {
 	int t;
 	cin >> t;
+
+	int month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
 	while (t--)
 	{
 		int x, y;
@@ -16,7 +18,7 @@ int main()
 
 
 		//Date
-		if (0 <= x && x <= 23 && 0 <= y && y <= 59)
+		if (x <= 23 && y <= 59)
 		{
 			cout << "Yes ";
 		}
@@ -26,15 +28,7 @@ int main()
 		}
 
 		//month
-		if ((x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12) && (1 <= y && y <= 31))
-		{
-			cout << "Yes\n";
-		}
-		else if ((x == 4 || x == 6 || x == 9 || x == 11) && (1 <= y && y <= 30))
-		{
-			cout << "Yes\n";
-		}
-		else if (x == 2 && (1 <= y && y <= 29))
+		if (1 <= x && x <= 12 && 1 <= y && y <= month[x])
 		{
 			cout << "Yes\n";
 		}
@@ -42,6 +36,5 @@ int main()
 		{
 			cout << "No\n";
 		}
-
 	}
 }
