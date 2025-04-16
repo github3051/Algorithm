@@ -2,47 +2,6 @@
 #include <vector>
 using namespace std;
 
-void Change(const char& c, const int& d)
-{
-	if (d == 1)
-	{
-		if(c == 'd')
-		{
-			cout << 'q';
-		}
-		else if(c == 'b')
-		{
-			cout << 'p';
-		}
-		else if(c == 'q')
-		{
-			cout << 'd';
-		}
-		else if(c == 'p')
-		{
-			cout << 'b';
-		}
-	}
-	else if (d == 2)
-	{
-		if (c == 'd')
-		{
-			cout << 'b';
-		}
-		else if (c == 'b')
-		{
-			cout << 'd';
-		}
-		else if (c == 'q')
-		{
-			cout << 'p';
-		}
-		else if (c == 'p')
-		{
-			cout << 'q';
-		}
-	}
-}
 
 int main()
 {
@@ -59,7 +18,14 @@ int main()
 			char c;
 			cin >> c;
 
-			Change(c, d);
+			if (d == 1)
+			{
+				cout << (c == 'b' ? 'p' : c == 'd' ? 'q' : c == 'q' ? 'd' :'b');
+			}
+			else if (d == 2)
+			{
+				cout << (c == 'd' ? 'b' : c == 'b' ? 'd' : c == 'q' ? 'p' : 'q');
+			}
 		}
 		cout << '\n';
 	}
