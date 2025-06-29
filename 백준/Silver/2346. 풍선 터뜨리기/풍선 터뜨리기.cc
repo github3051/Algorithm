@@ -1,39 +1,42 @@
 #include <iostream>
-#include <deque>
+#include <list>
+using namespace std;
 
 int main() {
-    int N;
-    std::cin >> N;
+    int n;
+    cin >> n;
 
-    std::deque<std::pair<int, int>> dq;
-
-    for (int i = 1; i <= N; ++i) {
+    list<pair<int, int>> balloons;
+    for (int i = 1; i <= n; ++i) {
         int move;
-        std::cin >> move;
-        dq.emplace_back(i, move); // (풍선 번호, 이동 값)
+        cin >> move;
+        balloons.emplace_back(i, move);
     }
 
-    while (!dq.empty()) {
-        auto& p = dq.front();
-        int idx = p.first;
-        int step = p.second;
-        dq.pop_front();
+    auto it = balloons.begin();
 
-        std::cout << idx << " ";
+    while (!balloons.empty()) {
+        int idx = it->first;
+        int move = it->second;
 
-        if (dq.empty()) break;
+        cout << idx << " ";
 
-        // 이동 수 보정
-        if (step > 0) {
-            for (int i = 0; i < step - 1; ++i) {
-                dq.push_back(dq.front());
-                dq.pop_front();
+        // 삭제 후, 다음 원소 반복자 반환
+        it = balloons.erase(it);
+        if (it == balloons.end()) it = balloons.begin(); // 중요!
+
+        if (balloons.empty()) break;
+
+        // 이동: 현재 풍선 제외 후 이동하므로 move-1
+        if (move > 0) {
+            for (int i = 0; i < move - 1; ++i) {
+                ++it;
+                if (it == balloons.end()) it = balloons.begin();
             }
-        }
-        else {
-            for (int i = 0; i < -step; ++i) {
-                dq.push_front(dq.back());
-                dq.pop_back();
+        } else {
+            for (int i = 0; i < -move; ++i) {
+                if (it == balloons.begin()) it = balloons.end();
+                --it;
             }
         }
     }
