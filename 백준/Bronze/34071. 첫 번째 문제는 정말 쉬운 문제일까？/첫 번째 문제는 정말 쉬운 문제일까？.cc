@@ -24,27 +24,10 @@ int main()
 
 	if (vec[0] == ez)
 	{
-		// 가장 쉬울때 or 쉬운게 여러개일때
-		for (int i = 1; i < n; ++i)
-		{
-			if (vec[i] == ez)
-			{
-				cout << '?';
-				return 0;
-			}
-		}
 		cout << "ez";
 	}
 	else if (vec[0] == hard)
 	{
-		for (int i = 1; i < n; ++i)
-		{
-			if (vec[i] == hard)
-			{
-				cout << '?';
-				return 0;
-			}
-		}
 		cout << "hard";
 	}
 	else
