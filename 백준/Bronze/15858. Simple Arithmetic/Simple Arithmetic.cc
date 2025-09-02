@@ -1,16 +1,14 @@
-#include <iostream>
-#include <iomanip>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    long long a, b, c;
-    if (!(cin >> a >> b >> c)) return 0;
-
-    long double x = (long double)a * (long double)b / (long double)c;
-
-    cout << fixed << setprecision(10) << x << '\n';
-    return 0;
+	long long int a, b, c , ab;
+	cin >> a >> b >> c;
+    ab = a*b;
+    if(ab >= 10*c)
+    {
+        cout << ab/(10*c);
+        ab %= 10*c; // res대신 ab를 덮어씀
+    }
+	cout << setprecision(18) << fixed << (long double)ab / c << endl;
 }
